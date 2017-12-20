@@ -1,4 +1,4 @@
-export_path() {
+local function export_path() {
   for p in ${(s.:.)2}; do
     if [[ ! "${(P)1}" =~ "$p" ]]; then
       export "$1"="$p:${(P)1}"
@@ -6,7 +6,7 @@ export_path() {
   done
 }
 
-export_env() {
+local function export_env() {
   local brew_prefix="$1"
   if [ -d "$brew_prefix" ]; then
     export_path 'PATH' "$brew_prefix/sbin:$brew_prefix/bin"
@@ -33,5 +33,3 @@ if (( ! $+commands[brew] )); then
       fi
   fi
 fi
-
-unfunction export_env export_path
