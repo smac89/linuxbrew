@@ -1,4 +1,4 @@
-local function export_path() {
+export_path() {
   for p in ${(s.:.)2}; do
     if [[ ! "${(P)1}" =~ "$p" ]]; then
       export "$1"="$p:${(P)1}"
@@ -6,7 +6,7 @@ local function export_path() {
   done
 }
 
-local function export_env() {
+export_env() {
   local brew_prefix="$1"
   if [ -d "$brew_prefix" ]; then
     export_path 'PATH' "$brew_prefix/sbin:$brew_prefix/bin"
@@ -17,9 +17,8 @@ local function export_env() {
   fi
 }
 
-local BREW_FOLDER='.linuxbrew'
-local HOME_PREFIX="$HOME/$BREW_FOLDER"
-local RECOMMENDED_PREFIX="/home/linuxbrew/$BREW_FOLDER"
+local HOME_PREFIX="$HOME/.linuxbrew"
+local RECOMMENDED_PREFIX='/home/linuxbrew/.linuxbrew'
 
 export_env $HOME_PREFIX
 export_env $RECOMMENDED_PREFIX
