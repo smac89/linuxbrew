@@ -17,8 +17,9 @@ local function export_env() {
   fi
 }
 
-local HOME_PREFIX="$HOME/.linuxbrew"
-local RECOMMENDED_PREFIX='/home/linuxbrew/.linuxbrew'
+local BREW_FOLDER='.linuxbrew'
+local HOME_PREFIX="$HOME/$BREW_FOLDER"
+local RECOMMENDED_PREFIX="/home/linuxbrew/$BREW_FOLDER"
 
 export_env $HOME_PREFIX
 export_env $RECOMMENDED_PREFIX
@@ -33,3 +34,5 @@ if (( ! $+commands[brew] )); then
       fi
   fi
 fi
+
+unfunction export_env export_path
