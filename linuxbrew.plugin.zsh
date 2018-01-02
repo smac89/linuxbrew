@@ -13,7 +13,11 @@ local function export_env() {
     export_path 'MANPATH' "$brew_prefix/share/man"
     export_path 'INFOPATH' "$brew_prefix/share/info"
     export_path 'XDG_DATA_DIRS' "$brew_prefix/share"
-    fpath=( "$brew_prefix/completions/zsh" $fpath )
+    fpath=(
+      $brew_prefix/completions/zsh
+      $brew_prefix/share/zsh/site-functions
+      $fpath
+    )
   fi
 }
 
@@ -34,4 +38,4 @@ if (( ! $+commands[brew] )); then
   fi
 fi
 
-# unfunction export_env export_path
+unfunction export_env export_path
