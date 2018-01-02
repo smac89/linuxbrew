@@ -15,7 +15,6 @@ local function export_env() {
     export_path 'XDG_DATA_DIRS' "$brew_prefix/share"
     fpath=(
       $brew_prefix/completions/zsh
-      # $brew_prefix/share/zsh/site-functions
       $fpath
     )
   fi
