@@ -1,5 +1,5 @@
 # linuxbrew
-Zsh plugin for [linuxbrew](https://github.com/Linuxbrew/brew)
+Zsh plugin for [linuxbrew](http://linuxbrew.sh)
 
 # Usage
 
